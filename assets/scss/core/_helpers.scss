@@ -1,0 +1,20 @@
+.clear {
+    clear: both;
+}
+
+// Flexbox
+.d-flex {
+    display: flex;
+}
+
+.mobile-only {
+    @include tablet {
+        display: none !important;
+    }
+}
+
+.desktop-only {
+    @include mobile {
+        display: none !important;
+    }
+}

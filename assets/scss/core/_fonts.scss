@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Canela';
+    src: url('~/assets/fonts/Canela-Light-Web.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Canela';
+    src: url('~/assets/fonts/Canela-Thin-Web.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Suisse Int`l';
+    src: local('Suisse Int`l'),
+        url("~/assets/fonts/SuisseIntl-Regular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Int`l';
+    src: local('Suisse Int`l'),
+        url("~/assets/fonts/SuisseIntl-Light.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
