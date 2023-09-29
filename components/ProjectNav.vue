@@ -1,7 +1,8 @@
 <template>
     <div class="d-flex">
-        <project-nav-card :link="this.getPrevPage.slug" :title="this.getPrevPage.name" :category="this.getPrevPage.category" />
-        <project-nav-card :link="this.getNextPage.slug" :title="this.getNextPage.name" :category="this.getNextPage.category" />
+
+        <project-nav-card :link="prevPageSlug" :title="prevPageName" :category="prevPageCategory" />
+        <project-nav-card :link="nextPageSlug" :title="nextPageName" :category="nextPageCategory" />
     </div>
 </template>
 
@@ -11,19 +12,35 @@ import ProjectNavCard from '~/components/ProjectNavCard.vue';
 
 export default {
     name: 'project-nav',
-    props: ['link', 'title', 'category'],
+    data() {
+        return {
+            prevPageSlug: String,
+            prevPageName: String,
+            prevPageCategory: String,
+            nextPageSlug: String,
+            nextPageName: String,
+            nextPageCategory: String,
+            currentIndex: 0,
+        }
+    },
     components: {
         ProjectNavCard,
     },
-    computed: {
+    methods: {
 		getPrevPage() {
-			let currentIndex = this.filterCurrentSlug;
-			return projects[currentIndex - 1] ? projects[currentIndex - 1] : projects[projects.length - 1];
+            let prevProject = projects[this.currentIndex - 1] ? projects[this.currentIndex - 1] : projects[projects.length - 1];
+
+            this.prevPageSlug = prevProject.slug;
+            this.prevPageName = prevProject.name;
+            this.prevPageCategory = prevProject.category;    
 		},
 
 		getNextPage() {
-			let currentIndex = this.filterCurrentSlug;
-			return projects[currentIndex + 1] ? projects[currentIndex + 1] : projects[0];
+            let nextProjet = projects[this.currentIndex + 1] ? projects[this.currentIndex + 1] : projects[0];
+
+            this.nextPageSlug = nextProjet.slug;
+            this.nextPageName = nextProjet.name;
+            this.nextPageCategory = nextProjet.category;
 		},
 
 		filterCurrentSlug() {
@@ -37,8 +54,14 @@ export default {
 			});
 
 			return index;
-		}
+		},
 	},
+    mounted() {
+        this.currentIndex = this.filterCurrentSlug();
+
+        this.getPrevPage();
+        this.getNextPage();
+    }
 }
 </script>
 

@@ -5,10 +5,6 @@
     line-height: rem(86px);
     font-family: 'Canela', sans-serif;
 
-    @include mobile {
-        font-size: rem(62px);
-    }
-
     @include tablet {
         font-size: rem(100px);
         line-height: rem(108px);

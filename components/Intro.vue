@@ -16,6 +16,12 @@
     </section>
 </template>
 
+<script>
+export default {
+	name: 'Intro'
+}
+</script>
+
 <style lang="scss">
 .intro {
     margin-top: rem(30px);

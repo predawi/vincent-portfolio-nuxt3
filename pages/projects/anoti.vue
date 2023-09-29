@@ -31,7 +31,7 @@
 
 		<project-blockquote quote="There are many ways in nature to co-operate rather than compete." author="Professor Henrietta Moore," cite=" Institute for Global Prosperity" />
 
-		<!-- <ProjectNav /> -->
+		<ProjectNav />
 	</div>
 </template>
 
