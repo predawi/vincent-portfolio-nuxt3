@@ -1,14 +1,19 @@
 <template>
   <div>
-    <h1>Contact</h1>
+    <Contact />
   </div>
 </template>
 
 
 <script>
-definePageMeta({ layout: 'default' })
+definePageMeta({ layout: 'contact' })
+
+import Contact from '~/components/Contact.vue';
 
 export default {
-  name: 'ContactPage'
+  name: 'ContactPage',
+  components: {
+    Contact,
+  }
 }
 </script>

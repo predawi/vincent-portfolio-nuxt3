@@ -1,7 +1,7 @@
 <script setup>
 useHead({
 	bodyAttrs: {
-		class: 'about-template'
+		class: 'contact-template'
 	},
 })
 </script>
@@ -27,19 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-.about-template {
-	background: $blackcolor;
-	color: #fff;
-
-	.nav__button,
-	a {
-		color: #fff;
-	}
-
-	.nav__list-item a {
-		@include tablet {
-			color: #fff;
-		}
-	}
+.contact-template {
+	background: #D9D9D9;
 }
 </style>
