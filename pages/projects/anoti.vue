@@ -31,6 +31,12 @@
 
 		<project-blockquote quote="There are many ways in nature to co-operate rather than compete." author="Professor Henrietta Moore," cite=" Institute for Global Prosperity" />
 
+		<project-video 
+			videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
+			marginTop="70px" 
+			alignment="right" 
+			noPadding="false" />
+
 		<ProjectNav />
 	</div>
 </template>
@@ -41,6 +47,7 @@ import ProjectImg from '~/components/ProjectImg.vue';
 import ProjectSubtitle from '~/components/ProjectSubtitle.vue';
 import ProjectParagraph from '~/components/ProjectParagraph.vue';
 import ProjectBlockquote from '~/components/ProjectBlockquote.vue';
+import ProjectVideo from '~/components/ProjectVideo.vue';
 import ProjectNav from '~/components/ProjectNav.vue';
 
 definePageMeta({ layout: 'project' })

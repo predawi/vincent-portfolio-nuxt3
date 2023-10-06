@@ -17,11 +17,3 @@ export default {
 	}
 };
 </script>
-
-<style lang="scss">
-.container {
-	@include tablet {
-		max-width: 950px;
-	}
-}
-</style>

@@ -1,0 +1,72 @@
+<template>
+    <section class="project-video" :style="[marginTop ? {'margin-top': marginTop} : '']">
+        <div class="container">
+
+            <figure class="project-video__figure" :class="
+                [alignment ? ' project-video__figure--' + alignment : ''] +
+                [noPadding === 'true' ? ' project-video__figure--no-padding' : '']">
+
+                <video controls class="project-video__video">
+                    <source :src="videoSrc" type="video/mp4" />
+                </video>
+            </figure>
+
+        </div>
+    </section>
+</template>
+
+<script>
+export default {
+    name: 'project-video',
+    props: ['videoSrc', 'marginTop', 'alignment', 'noPadding'],
+}
+</script>
+
+<style lang="scss">
+.project-video {
+    margin-top: rem(70px);
+    overflow-x: hidden;
+
+    .container {
+        max-width: 896px;
+    }
+
+    &__figure {
+        display: flex;
+        flex-flow: column;
+        margin: 0;
+
+        &--right {
+            @include tablet {
+                align-items: flex-end;
+            }
+        }
+
+        &--center {
+            @include tablet {
+                align-items: center;
+            }
+        }
+
+        &--no-padding {
+            @include mobile {
+                margin: 0 rem(-25px);
+
+                .project-video__caption {
+                    margin: rem(10px) rem(25px) 0;
+                }
+            }
+        }
+    }
+
+    &__video {
+        display: block;
+        height: auto;
+        width: 100%;
+
+        @include tablet {
+            max-width: 100%;
+        }
+    }
+}
+</style>
