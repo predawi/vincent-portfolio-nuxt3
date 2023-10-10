@@ -37,6 +37,38 @@
 			alignment="right" 
 			noPadding="false" />
 
+		<project-paragraph-img htmlText="<h3>Improving the subscription process</h3>
+			<p>Humans currently extract Earth’s limited natural resources and distribute them unequally. Globally, we continue to consume more than we need to generate profits.</p>
+			<p>Current economic systems en- courage the idea that nature is separate from us and is a free resource for us to exploit. Look deeper into the complex interactions of the natural world and begin to imagine a dif- ferent approach.</p>"
+			imgSrc="/projects/anoti/anoti-01.png"
+			imgAlt="Anoti image 01" 
+			marginTop="70px" 
+			noPadding="false"
+			caption="Workshop : “User needs // Served by”"
+		/>
+
+		<project-paragraph-img htmlText="<p>My methodology</p>
+			<ul type='none'>
+				<li><h3>1 - Build a MVP</h3></li>
+				<li><h3>1 - Build a MVP</h3></li>
+				<li><h3>1 - Build a MVP</h3></li>
+				<li><h3>1 - Build a MVP</h3></li>
+				<li><h3>1 - Build a MVP</h3></li>
+			</ul>"
+			imgSrc="/projects/anoti/anoti-01.png"
+			imgAlt="Anoti image 01" 
+			marginTop="70px" 
+			noPadding="false"
+			isCentered="true"
+			caption="Workshop : “User needs // Served by”"
+		/>
+
+		<project-audio 
+			audioSrc01="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
+			audioTitle01="Main theme"
+			audioSrc02="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
+			audioTitle02="Immersive theme" />
+
 		<ProjectNav />
 	</div>
 </template>
@@ -46,8 +78,10 @@ import ProjectIntro from '~/components/ProjectIntro.vue';
 import ProjectImg from '~/components/ProjectImg.vue';
 import ProjectSubtitle from '~/components/ProjectSubtitle.vue';
 import ProjectParagraph from '~/components/ProjectParagraph.vue';
+import ProjectParagraphImg from '~/components/ProjectParagraphImg.vue';
 import ProjectBlockquote from '~/components/ProjectBlockquote.vue';
 import ProjectVideo from '~/components/ProjectVideo.vue';
+import ProjectAudio from '~/components/ProjectAudio.vue';
 import ProjectNav from '~/components/ProjectNav.vue';
 
 definePageMeta({ layout: 'project' })
@@ -59,6 +93,7 @@ export default {
 		ProjectImg,
 		ProjectSubtitle,
 		ProjectParagraph,
+		ProjectParagraphImg,
 		ProjectBlockquote,
 		ProjectNav,
 	},

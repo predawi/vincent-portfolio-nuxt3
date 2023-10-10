@@ -1,6 +1,6 @@
 <template>
     <section class="project-video" :style="[marginTop ? {'margin-top': marginTop} : '']">
-        <div class="container">
+        <div class="container project-video__container">
 
             <figure class="project-video__figure" :class="
                 [alignment ? ' project-video__figure--' + alignment : ''] +
@@ -27,8 +27,8 @@ export default {
     margin-top: rem(70px);
     overflow-x: hidden;
 
-    .container {
-        max-width: 896px;
+    &__container {
+        max-width: 896px !important;
     }
 
     &__figure {

@@ -7,6 +7,12 @@
     display: flex;
 }
 
+.d-md-flex {
+    @include tablet {
+        display: flex;
+    }
+}
+
 .mobile-only {
     @include tablet {
         display: none !important;

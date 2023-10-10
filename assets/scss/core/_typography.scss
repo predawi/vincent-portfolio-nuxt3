@@ -54,6 +54,10 @@ h3 {
 
     p {
         margin: rem(20px) 0 0;
+
+        & + ul {
+            margin-top: 0;
+        }
     }
 
     small {
@@ -66,11 +70,20 @@ h3 {
 
         list-style-type: disc;
         list-style-position: inside;
+
+        h3 {
+            display: inline-block;
+            margin-top: rem(40px);
+        }
     }
 }
 
 ul[type=number] {
     list-style-type: decimal;
+}
+
+ul[type=none] {
+    list-style-type: none;
 }
 
 .typo-link {
