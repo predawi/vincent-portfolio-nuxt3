@@ -45,6 +45,12 @@ export default {
         @include tablet {
             margin-top: -360px;
         }
+
+        svg {
+            @include mobile {
+                max-width: 100%;
+            }
+        }
     }
 
     &__wrapper {
