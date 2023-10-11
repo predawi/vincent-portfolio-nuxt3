@@ -10,19 +10,19 @@
 
 			<!-- One tile projet -->
 			<div class="container">
-				<project-card link="anoti" title="Anoti" category="SAAS COMPLIANCE" />
+				<project-card link="anoti" title="Anoti" category="SAAS COMPLIANCE" description="How to engage with customers in <br> high end luxury retail environments" />
 			</div>
 			
 			<!-- Three tiles projects -->
 			<div class="projects-row">
-				<project-card link="our-time-on-earth" title="Our Time on Earth" category="SAAS COMPLIANCE" />
-				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" />
-				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" />
+				<project-card link="our-time-on-earth" title="Our Time on Earth" category="SAAS COMPLIANCE" description="How to engage with customers in <br> high end luxury retail environments" />
+				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" description="How to engage with customers in <br> high end luxury retail environments" />
+				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" description="How to engage with customers in <br> high end luxury retail environments" />
 			</div>
 
 			<!-- One tile projet -->
 			<div class="container">
-				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" />
+				<project-card link="anoti" title="BNP Paribas" category="SAAS COMPLIANCE" description="How to engage with customers in <br> high end luxury retail environments" />
 			</div>
 
 		</div>

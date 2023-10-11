@@ -1,8 +1,9 @@
 <template>
     <div class="d-flex">
 
-        <project-nav-card :link="prevPageSlug" :title="prevPageName" :category="prevPageCategory" />
-        <project-nav-card :link="nextPageSlug" :title="nextPageName" :category="nextPageCategory" />
+        <project-nav-card :link="prevPageSlug" :title="prevPageName" :category="prevPageCategory" :description="prevPageDescription" />
+        <project-nav-card :link="nextPageSlug" :title="nextPageName" :category="nextPageCategory" :description="nextPageDescription" />
+        
     </div>
 </template>
 
@@ -17,9 +18,11 @@ export default {
             prevPageSlug: String,
             prevPageName: String,
             prevPageCategory: String,
+            prevPageDescription: String,
             nextPageSlug: String,
             nextPageName: String,
             nextPageCategory: String,
+            nextPageDescription: String,
             currentIndex: 0,
         }
     },
@@ -32,7 +35,8 @@ export default {
 
             this.prevPageSlug = prevProject.slug;
             this.prevPageName = prevProject.name;
-            this.prevPageCategory = prevProject.category;    
+            this.prevPageCategory = prevProject.category;
+            this.prevPageDescription = prevProject.description;
 		},
 
 		getNextPage() {
@@ -41,6 +45,7 @@ export default {
             this.nextPageSlug = nextProjet.slug;
             this.nextPageName = nextProjet.name;
             this.nextPageCategory = nextProjet.category;
+            this.nextPageDescription = nextProjet.description;
 		},
 
 		filterCurrentSlug() {

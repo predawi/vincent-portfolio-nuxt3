@@ -5,6 +5,8 @@
                 <h3 class="project-card__title">{{ title }}</h3>
                 <span v-if="category" class="typo-category project-card__category">{{ category }}</span>
             </div>
+
+            <div class="project-card__description" v-html="description"></div>
         </NuxtLink>
     </div>
 </template>
@@ -12,7 +14,7 @@
 <script>
 export default {
 name: 'project-card',
-props: ['link', 'title', 'category'],
+props: ['link', 'title', 'category', 'description'],
 }
 </script>
 
@@ -30,6 +32,13 @@ props: ['link', 'title', 'category'],
     @include tablet {
         height: rem(300px);
         margin-top: rem(20px);
+    }
+
+    &:hover,
+    &:focus {
+        .project-card__description {
+            opacity: 1;
+        }
     }
 
     &__link {
@@ -63,6 +72,31 @@ props: ['link', 'title', 'category'],
         font-size: rem(12px);
         letter-spacing: 0.07em;
         font-family: 'Suisse Int`l', sans-serif;
+    }
+
+    &__description {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: rem(50px);
+        line-height: rem(36px);
+        font-size: rem(18px);
+        font-family: 'Canela';
+        background: $blackcolor;
+        color: $maincolor;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .5s ease-out;
+
+        @include mobile {
+            display: none;
+        }
     }
 }
 </style>
