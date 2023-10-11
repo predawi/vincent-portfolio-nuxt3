@@ -1,7 +1,7 @@
 <template>
     <div class="reviews__card">
         <div class="reviews__infos">
-            <img v-if="imgSrc" :src="imgSrc" :alt="imgAlt" class="reviews__avatar" />
+            <img v-if="imgSrc" :src="imgSrc" :alt="imgAlt" class="reviews__avatar" loading="lazy" />
             <div class="reviews__metas">
                 <h3 v-if="author" class="reviews__author">{{ author }}</h3>
                 <span v-if="company" class="typo-category reviews__category">{{ company }}</span>

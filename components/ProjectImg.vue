@@ -11,7 +11,7 @@
                     :src="imgSrc" 
                     :alt="imgAlt"
                     :style="imgWidth"
-                    class="project-img__picture" />
+                    class="project-img__picture" loading="lazy" />
                     <figcaption v-if="caption" class="project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -21,7 +21,7 @@
                 <img 
                     :src="imgSrcMobile" 
                     :alt="imgAltMobile"
-                    class="project-img__picture" />
+                    class="project-img__picture" loading="lazy" />
                     <figcaption v-if="caption" class="project-img__caption">{{ caption }}</figcaption>
             </figure>
 

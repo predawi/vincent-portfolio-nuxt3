@@ -7,7 +7,7 @@
         <div class="container about-me__container">
             <h1 class="typo-t1 about-me__title">About me</h1>
 
-            <img src="/about-me.png" class="typo-t1 about-me__picture" alt="">
+            <img src="/about-me.png" class="typo-t1 about-me__picture" alt="" loading="lazy">
 
             <p class="typo-p about-me__description">I’m a Senior Product designer, CX designer, UX & UI designer. I work on digital strategy, immersive experiences and on conception of digital products for international companies and agencies</p>
 

@@ -10,7 +10,7 @@
                 <img 
                     :src="imgSrc" 
                     :alt="imgAlt"
-                    class="project-paragraph-img__picture" />
+                    class="project-paragraph-img__picture" loading="lazy" />
                     <figcaption v-if="caption" class="project-paragraph-img__caption">{{ caption }}</figcaption>
             </figure>
         </div>

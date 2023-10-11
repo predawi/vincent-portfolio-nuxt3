@@ -87,7 +87,7 @@
 
             <div class="cv__collapsed collapsed" id="collapse02">
                 <div class="cv__black-chips">
-                    <img src="/black-chips.png" alt="">
+                    <img src="/black-chips.png" alt="" loading="lazy">
                     <a href="#">See the vidéo</a>
                 </div>
 
