@@ -6,15 +6,20 @@
                 <span v-if="category" class="typo-category project-card__category">{{ category }}</span>
             </div>
 
-            <div class="project-card__description" v-html="description"></div>
+            <project-card-description :description=description />
         </NuxtLink>
     </div>
 </template>
 
 <script>
+import ProjectCardDescription from '~/components/ProjectCardDescription.vue'
+
 export default {
-name: 'project-card',
-props: ['link', 'title', 'category', 'description'],
+    name: 'project-card',
+    components: {
+        ProjectCardDescription,
+    },
+    props: ['link', 'title', 'category', 'description'],
 }
 </script>
 
@@ -32,6 +37,33 @@ props: ['link', 'title', 'category', 'description'],
     @include tablet {
         height: rem(300px);
         margin-top: rem(20px);
+    }
+
+    &--nav {
+        flex: auto;
+        margin: rem(100px) rem(24px) 0;
+        background: $maingrey;
+
+        @include tablet {
+            flex: 0 0 50%;
+            margin: rem(140px) 0 0;
+        }
+
+        &:first-child {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                border-left: none;
+            }
+        }
+
+        &:last-child {
+            @include tablet {
+                border-left: none;
+                border-right: none;
+            }
+        }
     }
 
     &:hover,
@@ -72,31 +104,6 @@ props: ['link', 'title', 'category', 'description'],
         font-size: rem(12px);
         letter-spacing: 0.07em;
         font-family: 'Suisse Int`l', sans-serif;
-    }
-
-    &__description {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        padding: rem(50px);
-        line-height: rem(36px);
-        font-size: rem(18px);
-        font-family: 'Canela';
-        background: $blackcolor;
-        color: $maincolor;
-        text-align: center;
-        opacity: 0;
-        transition: opacity .5s ease-out;
-
-        @include mobile {
-            display: none;
-        }
     }
 }
 </style>

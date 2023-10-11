@@ -1,15 +1,15 @@
 <template>
     <div class="d-flex">
 
-        <project-nav-card :link="prevPageSlug" :title="prevPageName" :category="prevPageCategory" :description="prevPageDescription" />
-        <project-nav-card :link="nextPageSlug" :title="nextPageName" :category="nextPageCategory" :description="nextPageDescription" />
+        <project-card :link="prevPageSlug" :title="prevPageName" :category="prevPageCategory" :description="prevPageDescription" class="project-card--nav" />
+        <project-card :link="nextPageSlug" :title="nextPageName" :category="nextPageCategory" :description="nextPageDescription" class="project-card--nav" />
         
     </div>
 </template>
 
 <script>
 import projects from '../data/project-list.json';
-import ProjectNavCard from '~/components/ProjectNavCard.vue';
+import ProjectCard from '~/components/ProjectCard.vue';
 
 export default {
     name: 'project-nav',
@@ -27,12 +27,12 @@ export default {
         }
     },
     components: {
-        ProjectNavCard,
+        ProjectCard,
     },
     methods: {
 		getPrevPage() {
             let prevProject = projects[this.currentIndex - 1] ? projects[this.currentIndex - 1] : projects[projects.length - 1];
-
+            
             this.prevPageSlug = prevProject.slug;
             this.prevPageName = prevProject.name;
             this.prevPageCategory = prevProject.category;
