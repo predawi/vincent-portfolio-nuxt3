@@ -1,6 +1,6 @@
 <template>
     <div class="project-audio-item">
-        <button class="project-audio-item__trigger js-audio-trigger"
+        <button class="project-audio-item__trigger js-audio-trigger" :aria-label="`Play ${audioTitle}`"
             @click="isPlayed = !isPlayed"
             :class="{ 'play': isPlayed, '': !isPlayed }"
             :data-target="id">
@@ -12,7 +12,7 @@
 
         {{ audioTitle }}
 
-        <audio :id="id">
+        <audio :id="id" preload="none">
             <source :src="audioSrc" type="audio/mpeg">
         </audio>
     </div>

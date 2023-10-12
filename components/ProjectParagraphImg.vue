@@ -11,7 +11,7 @@
                 <img 
                     :src="imgSrc" 
                     :alt="imgAlt"
-                    class="project-paragraph-img__picture" loading="lazy" />
+                    class="project-paragraph-img__picture" :loading=loading />
                     <figcaption v-if="caption" class="caption project-paragraph-img__caption">{{ caption }}</figcaption>
             </figure>
         </div>
@@ -21,7 +21,7 @@
 <script>
 export default {
     name: 'project-paragraph-img',
-    props: ['htmlText', 'isCentered', 'imgSrc', 'imgAlt', 'caption', 'marginTop'],
+    props: ['htmlText', 'isCentered', 'imgSrc', 'imgAlt', 'caption', 'marginTop', 'loading'],
 }
 </script>
 

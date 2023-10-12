@@ -13,7 +13,8 @@
 			marginTop="70px" 
 			alignment="right" 
 			noPadding="false"
-			caption="Workshop : “User needs // Served by”" />
+			caption="Workshop : “User needs // Served by”"
+			loading="eager" />
 
 		<project-subtitle text="Radical Solidarity" />
 
@@ -48,6 +49,7 @@
 			marginTop="70px" 
 			noPadding="false"
 			caption="Workshop : “User needs // Served by”"
+			loading="lazy"
 		/>
 
 		<project-paragraph-img htmlText="<p>My methodology</p>
@@ -64,6 +66,7 @@
 			noPadding="false"
 			isCentered="true"
 			caption="Workshop : “User needs // Served by”"
+			loading="lazy"
 		/>
 
 		<project-audio 

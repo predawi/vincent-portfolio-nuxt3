@@ -11,7 +11,7 @@
                     :src="imgSrc" 
                     :alt="imgAlt"
                     :style="imgWidth"
-                    class="project-img__picture" loading="lazy" />
+                    class="project-img__picture" :loading=loading />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -21,7 +21,7 @@
                 <img 
                     :src="imgSrcMobile" 
                     :alt="imgAltMobile"
-                    class="project-img__picture" loading="lazy" />
+                    class="project-img__picture" :loading=loading />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -32,7 +32,7 @@
 <script>
 export default {
     name: 'project-img',
-    props: ['imgSrc', 'imgAlt', 'imgSrcMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding'],
+    props: ['imgSrc', 'imgAlt', 'imgSrcMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
     data() {
         return {
             imgWidth: 'desktop-sidebar',

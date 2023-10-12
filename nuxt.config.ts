@@ -12,7 +12,8 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
-        { name: 'description', content: 'Portfolio of Vincent Charamon, experience designer' }
+        { name: 'description', content: 'Portfolio of Vincent Charamon, experience designer' },
+        { name: 'theme-color', content: '#E4A79D' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

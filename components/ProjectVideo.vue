@@ -6,7 +6,7 @@
                 [alignment ? ' project-video__figure--' + alignment : ''] +
                 [noPadding === 'true' ? ' project-video__figure--no-padding' : '']">
 
-                <video controls class="project-video__video">
+                <video controls class="project-video__video" preload="none">
                     <source :src="videoSrc" type="video/mp4" />
                 </video>
                 <figcaption v-if="caption" class="caption project-video__caption">{{ caption }}</figcaption>
