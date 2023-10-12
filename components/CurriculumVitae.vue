@@ -209,8 +209,9 @@ export default {
 	name: 'CurriculumVitae',
     methods: {
         openCollapse(e) {
-            let target = e.target.getAttribute('data-target');
-            e.target.classList.toggle('close')
+            let target = e.currentTarget.getAttribute('data-target');
+
+            e.currentTarget.classList.toggle('close');
             document.getElementById(target).classList.toggle('collapsed');
         }
     }

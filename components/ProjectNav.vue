@@ -49,11 +49,11 @@ export default {
 		},
 
 		filterCurrentSlug() {
-			let currentSlug = this.$route.path.substring(this.$route.path.lastIndexOf('/') + 1);
-			let index = -1;
-			let val = currentSlug;
+			let currentSlug = this.$route.name.split("projects-").pop();
+			let index = 0;
+
 			let filteredObj = projects.find(function(item, i) {
-				if (item.slug === val) {
+				if (item.slug === currentSlug) {
 					index = i;
 				}
 			});
@@ -63,7 +63,6 @@ export default {
 	},
     mounted() {
         this.currentIndex = this.filterCurrentSlug();
-
         this.getPrevPage();
         this.getNextPage();
     }

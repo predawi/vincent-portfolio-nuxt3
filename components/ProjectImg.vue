@@ -12,7 +12,7 @@
                     :alt="imgAlt"
                     :style="imgWidth"
                     class="project-img__picture" loading="lazy" />
-                    <figcaption v-if="caption" class="project-img__caption">{{ caption }}</figcaption>
+                    <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
             <figure :if="imgSrcMobile" class="project-img__figure mobile-only" :class="
@@ -22,7 +22,7 @@
                     :src="imgSrcMobile" 
                     :alt="imgAltMobile"
                     class="project-img__picture" loading="lazy" />
-                    <figcaption v-if="caption" class="project-img__caption">{{ caption }}</figcaption>
+                    <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
         </div>
@@ -96,13 +96,6 @@ export default {
         @include tablet {
             max-width: 100%;
         }
-    }
-
-    &__caption {
-        margin-top: rem(10px);
-        line-height: rem(17px);
-        font-size: rem(10px);
-        text-align: right;
     }
 }
 </style>

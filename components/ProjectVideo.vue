@@ -9,6 +9,7 @@
                 <video controls class="project-video__video">
                     <source :src="videoSrc" type="video/mp4" />
                 </video>
+                <figcaption v-if="caption" class="caption project-video__caption">{{ caption }}</figcaption>
             </figure>
 
         </div>
@@ -18,7 +19,7 @@
 <script>
 export default {
     name: 'project-video',
-    props: ['videoSrc', 'marginTop', 'alignment', 'noPadding'],
+    props: ['videoSrc', 'caption', 'marginTop', 'alignment', 'noPadding'],
 }
 </script>
 

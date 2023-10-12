@@ -2,6 +2,7 @@
     <div class="container">
         <div class="typo-p project-paragraph" 
             v-html="htmlText" 
+            :style="[marginTop ? {'margin-top': marginTop} : '']"
             :class="[isSmall ? 'project-paragraph--small' : ''] +
                     [isCentered ? ' project-paragraph--centered' : '']
         ">
@@ -12,7 +13,7 @@
 <script>
 export default {
     name: 'project-paragraph',
-    props: ['htmlText', 'isSmall', 'isCentered'],
+    props: ['htmlText', 'isSmall', 'isCentered', 'marginTop'],
 }
 </script>
 

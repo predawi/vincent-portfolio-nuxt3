@@ -67,12 +67,12 @@ export default {
     }
 
     &__list {
-        display: flex;
-        flex-wrap: wrap;
         padding: rem(30px) 0 rem(20px);
         border-bottom: 1px solid #2A3E25;
 
         @include tablet {
+            display: flex;
+            flex-wrap: wrap;
             padding: rem(50px) 0 rem(40px);
         }
     }

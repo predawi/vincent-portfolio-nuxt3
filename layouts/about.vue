@@ -30,6 +30,7 @@ export default {
 .about-template {
 	background: $blackcolor;
 	color: #fff;
+	transition: background-color .5s ease-out;
 
 	.nav__button,
 	a {
