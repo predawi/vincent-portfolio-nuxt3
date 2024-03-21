@@ -1,27 +1,26 @@
 <template>
 	<div>
+		<div class="loader">
+			<div class="lds-dual-ring"></div>
+		</div>
+
+		<div>{{ title }}</div>
+
 		<project-intro title="Anoti" skills="UX & UI"
 			htmlText="I collaborated with Anoti, a startup tackling corporate compliance issues, to form their visual identity, and construct their primary website with the intent to attract customers. <br>The Saas platform is the tool they offer to businesses." />
 
-		<project-img 
-			imgSrc="/projects/anoti/anoti-01.png"
-			imgAlt="Anoti image 01" 
-			imgSrcMobile="/projects/anoti/anoti-01-mobile.png"
-			imgAltMobile="Anoti image 01" 
-			mobileWidth="530px" 
-			desktopWidth="70%" 
-			marginTop="70px" 
-			alignment="right" 
-			noPadding="false"
-			caption="Workshop : “User needs // Served by”"
-			loading="eager" />
+		<project-img imgSrc="/projects/anoti/anoti-01.png" imgAlt="Anoti image 01"
+			imgSrcMobile="/projects/anoti/anoti-01-mobile.png" imgAltMobile="Anoti image 01" mobileWidth="530px"
+			desktopWidth="70%" marginTop="70px" alignment="right" noPadding="false"
+			caption="Workshop : “User needs // Served by”" loading="eager" />
 
 		<project-subtitle text="Radical Solidarity" />
 
-		<project-paragraph htmlText="<h3>Improving the subscription process</h3>
+		<project-paragraph
+			htmlText="<h3>Improving the subscription process</h3>
 		<p>Humans currently extract Earth’s limited natural resources and distribute them unequally. Globally, we continue to consume more than we need to generate profits.</p>
 		<p>Current economic systems en- courage the idea that nature is separate from us and is a free resource for us to exploit. Look deeper into the complex interactions of the natural world and begin to imagine a dif- ferent approach.</p>"
-		marginTop="70px" />
+			marginTop="70px" />
 
 		<project-paragraph htmlText="<small><p>Our data from the research phase showed that the subscription process on the website was underperforming because of :</p>
 		<ul type='number'>
@@ -29,28 +28,20 @@
 			<li>The nature of the questions asked at each step of the process</li>
 			<li>The number of steps (9)</li>
 		</ul>
-		</small>"
-		isSmall="true" isCentered="true" />
+		</small>" isSmall="true" isCentered="true" />
 
-		<project-blockquote quote="There are many ways in nature to co-operate rather than compete." author="Professor Henrietta Moore," cite=" Institute for Global Prosperity" />
+		<project-blockquote quote="There are many ways in nature to co-operate rather than compete."
+			author="Professor Henrietta Moore," cite=" Institute for Global Prosperity" />
 
-		<project-video 
-			videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
-			marginTop="70px" 
-			alignment="right" 
-			noPadding="false"
-			caption="Workshop : “User needs // Served by”" />
+		<project-video videoSrc="https://www.w3schools.com/html/mov_bbb.mp4" marginTop="70px" alignment="right"
+			noPadding="false" caption="Workshop : “User needs // Served by”" />
 
-		<project-paragraph-img htmlText="<h3>Improving the subscription process</h3>
+		<project-paragraph-img
+			htmlText="<h3>Improving the subscription process</h3>
 			<p>Humans currently extract Earth’s limited natural resources and distribute them unequally. Globally, we continue to consume more than we need to generate profits.</p>
 			<p>Current economic systems en- courage the idea that nature is separate from us and is a free resource for us to exploit. Look deeper into the complex interactions of the natural world and begin to imagine a dif- ferent approach.</p>"
-			imgSrc="/projects/anoti/anoti-01.png"
-			imgAlt="Anoti image 01" 
-			marginTop="70px" 
-			noPadding="false"
-			caption="Workshop : “User needs // Served by”"
-			loading="lazy"
-		/>
+			imgSrc="/projects/anoti/anoti-01.png" imgAlt="Anoti image 01" marginTop="70px" noPadding="false"
+			caption="Workshop : “User needs // Served by”" loading="lazy" />
 
 		<project-paragraph-img htmlText="<p>My methodology</p>
 			<ul type='none'>
@@ -59,20 +50,11 @@
 				<li><h3>1 - Build a MVP</h3></li>
 				<li><h3>1 - Build a MVP</h3></li>
 				<li><h3>1 - Build a MVP</h3></li>
-			</ul>"
-			imgSrc="/projects/anoti/anoti-01.png"
-			imgAlt="Anoti image 01" 
-			marginTop="150px" 
-			noPadding="false"
-			isCentered="true"
-			caption="Workshop : “User needs // Served by”"
-			loading="lazy"
-		/>
+			</ul>" imgSrc="/projects/anoti/anoti-01.png" imgAlt="Anoti image 01" marginTop="150px" noPadding="false"
+			isCentered="true" caption="Workshop : “User needs // Served by”" loading="lazy" />
 
-		<project-audio 
-			audioSrc01="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
-			audioTitle01="Main theme"
-			audioSrc02="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
+		<project-audio audioSrc01="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
+			audioTitle01="Main theme" audioSrc02="https://thepaciellogroup.github.io/AT-browser-tests/audio/jeffbob.mp3"
 			audioTitle02="Immersive theme" />
 
 		<project-link linkSrc="#" linkTitle="Discover the prototype" alignment="center" />
@@ -82,6 +64,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import ProjectIntro from '~/components/ProjectIntro.vue';
 import ProjectImg from '~/components/ProjectImg.vue';
 import ProjectSubtitle from '~/components/ProjectSubtitle.vue';
@@ -111,7 +95,75 @@ export default {
 		return {
 			title: 'Anoti'
 		}
+	},
+	data() {
+		return {
+			title: ''
+		};
+	},
+	mounted() {
+		axios.get('https://6freedom.studio/wp-json/wp/v2/posts/4014')
+			.then(response => {
+				console.log(response.data.title.rendered);
+				this.title = response.data.title.rendered;
+
+				document.querySelector('.loader').classList.add('hidden')
+				setTimeout(() => {
+					document.querySelector('.loader').classList.add('remove')
+				}, 300);
+			});
 	}
 }
 </script>
-  
+
+<style lang="scss">
+.loader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: gray;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease-in-out;
+
+	&.hidden {
+		opacity: 0;
+	}
+
+	&.remove {
+		z-index: -999;
+	}
+}
+
+.lds-dual-ring {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+}
+
+.lds-dual-ring:after {
+	content: " ";
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid #fff;
+	border-color: #fff transparent #fff transparent;
+	animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+</style>

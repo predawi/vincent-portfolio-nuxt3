@@ -1,21 +1,20 @@
 [
-    {
-      "name": "Anoti",
-      "slug": "anoti",
-      "category": "SAAS COMPLIANCE",
-      "description": "How to engage with customers in <br> high end luxury retail environments"
-    },
-    {
-      "name": "Our Time on Earth",
-      "slug": "our-time-on-earth",
-      "category": "SAAS COMPLIANCE",
-      "description": "How to engage with customers in <br> high end luxury retail environments"
-    },
-    {
-      "name": "Wellio",
-      "slug": "wellio",
-      "category": "SAAS COMPLIANCE",
-      "description": "How to engage with customers in <br> high end luxury retail environments"
-    }
-  ]
-  
+  {
+    "name": "Anoti",
+    "slug": "anoti",
+    "category": "SAAS COMPLIANCE",
+    "description": "How to engage with customers in <br> high end luxury retail environments"
+  },
+  {
+    "name": "Our Time on Earth",
+    "slug": "our-time-on-earth",
+    "category": "SAAS COMPLIANCE",
+    "description": "How to engage with customers in <br> high end luxury retail environments"
+  },
+  {
+    "name": "Wellio",
+    "slug": "wellio",
+    "category": "SAAS COMPLIANCE",
+    "description": "How to engage with customers in <br> high end luxury retail environments"
+  }
+]

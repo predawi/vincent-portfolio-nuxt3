@@ -22,7 +22,7 @@ export default {
 	components: {
 		HeaderBanner,
 		Footer,
-	},
+	}
 };
 </script>
 
