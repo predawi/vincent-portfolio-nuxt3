@@ -52,7 +52,7 @@ export default {
 
         const config = useRuntimeConfig()
 
-        if(this.imgId) {
+        if (this.imgId) {
             axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgId)
                 .then(response => {
                     this.imgSrc = response.data.source_url
@@ -60,7 +60,7 @@ export default {
                 });
         }
 
-        if(this.imgIdMobile) {
+        if (this.imgIdMobile) {
             axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgIdMobile)
                 .then(response => {
                     this.imgSrcMobile = response.data.source_url

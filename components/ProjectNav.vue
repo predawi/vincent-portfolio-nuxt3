@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import projects from '../data/project-list.json';
 import ProjectCard from '~/components/ProjectCard.vue'
+
+import axios from 'axios';
 
 // import { createClient } from '@supabase/supabase-js'
 
@@ -31,6 +32,7 @@ export default {
             nextPageCategory: String,
             nextPageDescription: String,
             currentIndex: 0,
+            projects: Array,
         }
     },
     components: {
@@ -38,28 +40,28 @@ export default {
     },
     methods: {
 		getPrevPage() {
-            let prevProject = projects[this.currentIndex - 1] ? projects[this.currentIndex - 1] : projects[projects.length - 1];
+            let prevProject = this.projects[this.currentIndex - 1] ? this.projects[this.currentIndex - 1] : this.projects[this.projects.length - 1];
             
             this.prevPageSlug = prevProject.slug;
-            this.prevPageName = prevProject.name;
-            this.prevPageCategory = prevProject.category;
-            this.prevPageDescription = prevProject.description;
+            this.prevPageName = prevProject.title.rendered;
+            this.prevPageCategory = prevProject.acf.category;
+            this.prevPageDescription = prevProject.excerpt.rendered;
 		},
 
 		getNextPage() {
-            let nextProjet = projects[this.currentIndex + 1] ? projects[this.currentIndex + 1] : projects[0];
+            let nextProject = this.projects[this.currentIndex + 1] ? this.projects[this.currentIndex + 1] : this.projects[0];
 
-            this.nextPageSlug = nextProjet.slug;
-            this.nextPageName = nextProjet.name;
-            this.nextPageCategory = nextProjet.category;
-            this.nextPageDescription = nextProjet.description;
+            this.nextPageSlug = nextProject.slug;
+            this.nextPageName = nextProject.title.rendered;
+            this.nextPageCategory = nextProject.acf.category;
+            this.nextPageDescription = nextProject.excerpt.rendered;
 		},
 
 		filterCurrentSlug() {
-			let currentSlug = this.$route.name.split("projects-").pop();
+			let currentSlug = this.$route.params.slug;
 			let index = 0;
 
-			let filteredObj = projects.find(function(item, i) {
+			let filteredObj = this.projects.find(function(item, i) {
 				if (item.slug === currentSlug) {
 					index = i;
 				}
@@ -69,22 +71,16 @@ export default {
 		},
 	},
     mounted() {
-        this.currentIndex = this.filterCurrentSlug();
-        this.getPrevPage();
-        this.getNextPage();
+        const config = useRuntimeConfig()
 
-        // const self = this;
-        
-        // async function getProjects() {
-        //     const { data } = await supabase.from('projects').select()
-        //     projects = data
+        axios.get(config.public.BACK_OFFICE_URL + 'project/')
+            .then(response => {
+                this.projects = response.data
 
-        //     self.currentIndex = self.filterCurrentSlug();
-        //     self.getPrevPage();
-        //     self.getNextPage();
-        // }
-
-        // getProjects()
+                this.currentIndex = this.filterCurrentSlug()
+                this.getPrevPage()
+                this.getNextPage()
+            });
     }
 }
 </script>
