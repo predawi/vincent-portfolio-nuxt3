@@ -3,8 +3,8 @@
         <div class="typo-p project-paragraph" 
             v-html="htmlText" 
             :style="[marginTop ? {'margin-top': marginTop} : '']"
-            :class="[isSmall ? 'project-paragraph--small' : ''] +
-                    [isCentered ? ' project-paragraph--centered' : '']
+            :class="[isShrink === 1 ? 'project-paragraph--shrink' : ''] +
+                    [isCentered === 1 ? ' project-paragraph--centered' : '']
         ">
         </div>
     </div>
@@ -13,7 +13,7 @@
 <script>
 export default {
     name: 'project-paragraph',
-    props: ['htmlText', 'isSmall', 'isCentered', 'marginTop'],
+    props: ['htmlText', 'isShrink', 'isCentered', 'marginTop'],
 }
 </script>
 
@@ -26,7 +26,7 @@ export default {
         margin: rem(70px) 0 0 rem(100px);
     }
 
-    &--small {
+    &--shrink {
         @include tablet {
             max-width: 460px;
         }

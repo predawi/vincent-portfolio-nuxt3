@@ -12,21 +12,34 @@
 
         {{ audioTitle }}
 
-        <audio :id="id" preload="none">
+        <audio v-if="audioSrc" :id="id" preload="none">
             <source :src="audioSrc" type="audio/mpeg">
         </audio>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'project-audio-item',
-    props: ['audioSrc', 'audioTitle', 'id'],
+    props: ['audioId', 'audioTitle', 'id'],
     data: function () {
 		return {
 			isPlayed: false,
+            audioSrc: false,
 		}
 	},
+    mounted() {
+        const config = useRuntimeConfig()
+
+        if(this.audioId) {
+            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.audioId)
+                .then(response => {
+                    this.audioSrc = response.data.source_url
+                });
+        }
+    },
 }
 </script>
 

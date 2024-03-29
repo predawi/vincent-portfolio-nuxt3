@@ -1,6 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    // public: {
+    //   BACK_OFFICE_URL: 'https://6freedom.studio/wp-json/wp/v2/'
+    // }
+    public: {
+      BACK_OFFICE_URL: 'http://vincent-backend/wp-json/wp/v2/'
+    }
+  },
   app: {
     head: {
       title: 'vincent-portfolio',

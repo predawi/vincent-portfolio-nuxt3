@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <blockquote class="project-blockquote" :class="
-                    [isSmall ? 'project-blockquote--small' : ''] +
-                    [isCentered ? ' project-blockquote--centered' : '']">
+                    [isShrink == 1 ? 'project-blockquote--shrink' : ''] +
+                    [isCentered == 1 ? ' project-blockquote--centered' : '']">
             <p>{{ quote }}</p>
             <footer>{{ author }} <cite>{{ cite }}</cite></footer>
         </blockquote>
@@ -12,7 +12,7 @@
 <script>
 export default {
     name: 'project-blockquote',
-    props: ['quote', 'author', 'cite', 'isSmall', 'isCentered'],
+    props: ['quote', 'author', 'cite', 'isShrink', 'isCentered'],
 }
 </script>
 
@@ -27,7 +27,7 @@ export default {
         margin: rem(55px) 0 0 rem(100px);
     }
 
-    &--small {
+    &--shrink {
         @include tablet {
             max-width: 460px;
         }

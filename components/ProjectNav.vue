@@ -9,7 +9,14 @@
 
 <script>
 import projects from '../data/project-list.json';
-import ProjectCard from '~/components/ProjectCard.vue';
+import ProjectCard from '~/components/ProjectCard.vue'
+
+// import { createClient } from '@supabase/supabase-js'
+
+// const supabase = createClient('https://dtdgsqcyembnqzqnqhou.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0ZGdzcWN5ZW1ibnF6cW5xaG91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEwMzIwODksImV4cCI6MjAyNjYwODA4OX0.SxCGGe9Y-meVQ9PLPHzgs9txXp8hVF8ou9i2Vyh8_nw')
+// let projects = ref([])
+
+// const config = useRuntimeConfig()
 
 export default {
     name: 'project-nav',
@@ -65,6 +72,19 @@ export default {
         this.currentIndex = this.filterCurrentSlug();
         this.getPrevPage();
         this.getNextPage();
+
+        // const self = this;
+        
+        // async function getProjects() {
+        //     const { data } = await supabase.from('projects').select()
+        //     projects = data
+
+        //     self.currentIndex = self.filterCurrentSlug();
+        //     self.getPrevPage();
+        //     self.getNextPage();
+        // }
+
+        // getProjects()
     }
 }
 </script>

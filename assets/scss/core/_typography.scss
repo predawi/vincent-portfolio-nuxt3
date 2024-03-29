@@ -46,6 +46,7 @@ h3 {
     font-weight: 300;
     line-height: rem(26px);
     font-family: 'Suisse Int`l', sans-serif;
+    white-space: pre-line;
 
     @include tablet {
         font-size: rem(22px);

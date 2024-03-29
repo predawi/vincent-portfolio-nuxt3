@@ -2,26 +2,26 @@
     <section class="project-img" :style="[marginTop ? {'margin-top': marginTop} : '']">
         <div class="container">
 
-            <figure class="project-img__figure" :class="
+            <figure v-if="imgSrc" class="project-img__figure" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
                 [imgSrcMobile ? ' desktop-only' : ''] +
-                [noPadding === 'true' ? ' project-img__figure--no-padding' : '']">
+                [noPadding === 1 ? ' project-img__figure--no-padding' : '']">
 
                 <img 
-                    :src="imgSrc" 
+                    :src="imgSrc"
                     :alt="imgAlt"
                     :style="imgWidth"
-                    class="project-img__picture" :loading=loading />
+                    class="project-img__picture" :loading="loading" />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
-            <figure :if="imgSrcMobile" class="project-img__figure mobile-only" :class="
+            <figure v-if="imgSrcMobile" class="project-img__figure mobile-only" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
-                [noPadding === 'true' ? ' project-img__figure--no-padding' : '']">
+                [noPadding === 1 ? ' project-img__figure--no-padding' : '']">
                 <img 
                     :src="imgSrcMobile" 
                     :alt="imgAltMobile"
-                    class="project-img__picture" :loading=loading />
+                    class="project-img__picture" :loading="loading" />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -30,12 +30,18 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'project-img',
-    props: ['imgSrc', 'imgAlt', 'imgSrcMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
+    props: ['imgId', 'imgAlt', 'imgIdMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
     data() {
         return {
             imgWidth: 'desktop-sidebar',
+            imgSrc: false,
+            imgSrcMobile: false,
+            imgAlt: "",
+            imgAltMobile: "",
         };
     },
     mounted() {
@@ -43,6 +49,24 @@ export default {
         this.initDesktopWidth = this.desktopWidth ? this.desktopWidth : '100%';
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
+
+        const config = useRuntimeConfig()
+
+        if(this.imgId) {
+            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgId)
+                .then(response => {
+                    this.imgSrc = response.data.source_url
+                    this.imgAlt = response.data.alt_text
+                });
+        }
+
+        if(this.imgIdMobile) {
+            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgIdMobile)
+                .then(response => {
+                    this.imgSrcMobile = response.data.source_url
+                    this.imgAltMobile = response.data.alt_text
+                });
+        }
     },
     destroyed() {
         window.removeEventListener('resize', this.handleResize);
