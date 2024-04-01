@@ -3,8 +3,8 @@
         <div class="typo-p project-paragraph" 
             v-html="htmlText" 
             :style="[marginTop ? {'margin-top': marginTop} : '']"
-            :class="[isShrink === 1 ? 'project-paragraph--shrink' : ''] +
-                    [isCentered === 1 ? ' project-paragraph--centered' : '']
+            :class="[isShrink ? 'project-paragraph--shrink' : ''] +
+                    [isCentered ? ' project-paragraph--centered' : '']
         ">
         </div>
     </div>

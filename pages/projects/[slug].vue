@@ -5,64 +5,66 @@
 		</div>
 
 		<div v-for="block in blocks">
-			<project-intro v-if="block.blockName == 'acf/intro'" 
-				:title=block.attrs.data.title 
-				:skills=block.attrs.data.skills
-				:htmlText=block.attrs.data.intro />
+			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" 
+				:title=block.title 
+				:skills=block.skills
+				:htmlText=block.intro />
 
-			<project-img v-if="block.blockName == 'acf/image'" 
-				:imgId=block.attrs.data.image
-				:imgIdMobile=block.attrs.data.image_mobile
-				:mobileWidth=block.attrs.data.width_mobile
-				:desktopWidth=block.attrs.data.width_desktop
-				:marginTop=block.attrs.data.margin_top
-				:alignment=block.attrs.data.alignment
-				:noPadding=block.attrs.data.no_padding
-				:caption=block.attrs.data.caption
+			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" 
+				:imgSrc=block.image.url
+				:imgAlt=block.image.alt
+				:imgSrcMobile=block.image_mobile.url
+				:imgAltMobile=block.image_mobile.alt
+				:mobileWidth=block.width_mobile
+				:desktopWidth=block.width_desktop
+				:marginTop=block.margin_top
+				:alignment=block.alignment
+				:noPadding=block.no_padding
+				:caption=block.caption
 				:loading=eager />
 
-			<project-subtitle v-if="block.blockName == 'acf/subtitle'" 
-				:text=block.attrs.data.subtitle />
+			<project-subtitle v-if="block.acf_fc_layout == 'flexible_custom_subtitle'" 
+				:text=block.subtitle />
 
-			<project-paragraph v-if="block.blockName == 'acf/paragraph'" 
-				:htmlText=block.attrs.data.paragraph
-				:marginTop=block.attrs.data.margin_top
-				:isShrink=block.attrs.data.is_shrink
-				:isCentered=block.attrs.data.is_centered />
+			<project-paragraph v-if="block.acf_fc_layout == 'flexible_custom_paragraph'" 
+				:htmlText=block.paragraph
+				:marginTop=block.margin_top
+				:isShrink=block.is_shrink
+				:isCentered=block.is_centered />
 
-			<project-blockquote v-if="block.blockName == 'acf/blockquote'" 
-				:quote=block.attrs.data.quote 
-				:author=block.attrs.data.author
-				:cite=block.attrs.data.cite
-				:isShrink=block.attrs.data.is_shrink
-				:isCentered=block.attrs.data.is_centered />
+			<project-blockquote v-if="block.acf_fc_layout == 'flexible_custom_blockquote'" 
+				:quote=block.quote 
+				:author=block.author
+				:cite=block.cite
+				:isShrink=block.is_shrink
+				:isCentered=block.is_centered />
 
-			<project-paragraph-img v-if="block.blockName == 'acf/paragraph-img'" 
-				:htmlText=block.attrs.data.paragraph
-				:imgId=block.attrs.data.image
-				imgAlt="Anoti image 01"
-				:marginTop=block.attrs.data.margin_top
-				caption=block.attrs.data.caption
-				:isCentered=block.attrs.data.is_centered
+			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'" 
+				:htmlText=block.paragraph
+				:imgSrc=block.image.url
+				:imgAlt=block.image.alt
+				:marginTop=block.margin_top
+				caption=block.caption
+				:isCentered=block.is_centered
 				loading="lazy" />
 
-			<project-video v-if="block.blockName == 'acf/video'" 
-				:videoId=block.attrs.data.video
-				:marginTop=block.attrs.data.margin_top
-				:alignment=block.attrs.data.alignment
-				:noPadding=block.attrs.data.no_padding
-				:caption=block.attrs.data.caption />
+			<project-video v-if="block.acf_fc_layout == 'flexible_custom_video'" 
+				:videoSrc=block.video.url
+				:marginTop=block.margin_top
+				:alignment=block.alignment
+				:noPadding=block.no_padding
+				:caption=block.caption />
 
-			<project-audio v-if="block.blockName == 'acf/audio'" 
-				:audioId01=block.attrs.data.audio_01
-				:audioTitle01=block.attrs.data.audio_title_01
-				:audioId02=block.attrs.data.audio_02
-				:audioTitle02=block.attrs.data.audio_title_02 />
+			<project-audio v-if="block.acf_fc_layout == 'flexible_custom_audio'" 
+				:audioSrc01=block.audio_01.url
+				:audioTitle01=block.audio_title_01
+				:audioSrc02=block.audio_02.url
+				:audioTitle02=block.audio_title_02 />
 
-			<project-link v-if="block.blockName == 'acf/link'" 
-				:linkSrc=block.attrs.data.link.url
-				:linkTitle=block.attrs.data.link.title
-				:alignment=block.attrs.data.alignment />
+			<project-link v-if="block.acf_fc_layout == 'flexible_custom_link'" 
+				:linkSrc=block.link.url
+				:linkTitle=block.link.title
+				:alignment=block.alignment />
 		</div>
 
 		<ProjectNav />
@@ -113,7 +115,7 @@ export default {
 
 		axios.get(config.public.BACK_OFFICE_URL + 'project?slug=' + this.$route.params.slug)
 			.then(response => {
-				this.blocks = response.data[0].blocks
+				this.blocks = response.data[0].acf.flexible
 
 				document.querySelector('.loader').classList.add('hidden')
 				setTimeout(() => {

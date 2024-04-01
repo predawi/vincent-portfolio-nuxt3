@@ -5,7 +5,7 @@
             <figure v-if="imgSrc" class="project-img__figure" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
                 [imgSrcMobile ? ' desktop-only' : ''] +
-                [noPadding === 1 ? ' project-img__figure--no-padding' : '']">
+                [noPadding ? ' project-img__figure--no-padding' : '']">
 
                 <img 
                     :src="imgSrc"
@@ -17,7 +17,7 @@
 
             <figure v-if="imgSrcMobile" class="project-img__figure mobile-only" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
-                [noPadding === 1 ? ' project-img__figure--no-padding' : '']">
+                [noPadding ? ' project-img__figure--no-padding' : '']">
                 <img 
                     :src="imgSrcMobile" 
                     :alt="imgAltMobile"
@@ -34,14 +34,10 @@ import axios from 'axios';
 
 export default {
     name: 'project-img',
-    props: ['imgId', 'imgAlt', 'imgIdMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
+    props: ['imgSrc', 'imgAlt', 'imgSrcMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
     data() {
         return {
             imgWidth: 'desktop-sidebar',
-            imgSrc: false,
-            imgSrcMobile: false,
-            imgAlt: "",
-            imgAltMobile: "",
         };
     },
     mounted() {
@@ -49,24 +45,6 @@ export default {
         this.initDesktopWidth = this.desktopWidth ? this.desktopWidth : '100%';
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
-
-        const config = useRuntimeConfig()
-
-        if (this.imgId) {
-            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgId)
-                .then(response => {
-                    this.imgSrc = response.data.source_url
-                    this.imgAlt = response.data.alt_text
-                });
-        }
-
-        if (this.imgIdMobile) {
-            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgIdMobile)
-                .then(response => {
-                    this.imgSrcMobile = response.data.source_url
-                    this.imgAltMobile = response.data.alt_text
-                });
-        }
     },
     destroyed() {
         window.removeEventListener('resize', this.handleResize);

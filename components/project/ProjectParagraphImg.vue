@@ -2,12 +2,12 @@
     <div class="container">
         <div class="project-paragraph-img"
             :style="[marginTop ? {'margin-top': marginTop} : '']"
-            :class="[isCentered === 1 ? ' project-paragraph-img--centered' : '']">
+            :class="[isCentered ? ' project-paragraph-img--centered' : '']">
             <div class="typo-p"
                 v-html="htmlText">
             </div>
 
-            <figure class="project-paragraph-img__figure">
+            <figure v-if="imgSrc" class="project-paragraph-img__figure">
                 <img 
                     :src="imgSrc" 
                     :alt="imgAlt"
@@ -23,24 +23,7 @@ import axios from 'axios';
 
 export default {
     name: 'project-paragraph-img',
-    props: ['htmlText', 'isCentered', 'imgId', 'imgAlt', 'caption', 'marginTop', 'loading'],
-    data() {
-        return {
-            imgSrc: false,
-            imgAlt: "",
-        };
-    },
-    mounted() {
-        const config = useRuntimeConfig()
-
-        if(this.imgId) {
-            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.imgId)
-                .then(response => {
-                    this.imgSrc = response.data.source_url
-                    this.imgAlt = response.data.alt_text
-                });
-        }
-    }
+    props: ['htmlText', 'isCentered', 'imgSrc', 'imgAlt', 'caption', 'marginTop', 'loading'],
 }
 </script>
 

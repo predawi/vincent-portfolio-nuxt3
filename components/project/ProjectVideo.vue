@@ -4,7 +4,7 @@
 
             <figure v-if="videoSrc" class="project-video__figure" :class="
                 [alignment ? ' project-video__figure--' + alignment : ''] +
-                [noPadding === 1 ? ' project-video__figure--no-padding' : '']">
+                [noPadding ? ' project-video__figure--no-padding' : '']">
 
                 <video controls class="project-video__video" preload="none">
                     <source :src="videoSrc" type="video/mp4" />
@@ -21,22 +21,7 @@ import axios from 'axios';
 
 export default {
     name: 'project-video',
-    props: ['videoId', 'caption', 'marginTop', 'alignment', 'noPadding'],
-    data() {
-        return {
-            videoSrc: false,
-        };
-    },
-    mounted() {
-        const config = useRuntimeConfig()
-
-        if(this.videoId) {
-            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.videoId)
-                .then(response => {
-                    this.videoSrc = response.data.source_url
-                });
-        }
-    },
+    props: ['videoSrc', 'caption', 'marginTop', 'alignment', 'noPadding'],
 }
 </script>
 

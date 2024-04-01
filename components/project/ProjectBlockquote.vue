@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <blockquote class="project-blockquote" :class="
-                    [isShrink == 1 ? 'project-blockquote--shrink' : ''] +
-                    [isCentered == 1 ? ' project-blockquote--centered' : '']">
-            <p>{{ quote }}</p>
+                    [isShrink ? 'project-blockquote--shrink' : ''] +
+                    [isCentered ? ' project-blockquote--centered' : '']">
+            <p  v-html="quote"></p>
             <footer>{{ author }} <cite>{{ cite }}</cite></footer>
         </blockquote>
     </div>

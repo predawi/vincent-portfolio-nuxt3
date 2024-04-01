@@ -23,23 +23,12 @@ import axios from 'axios';
 
 export default {
     name: 'project-audio-item',
-    props: ['audioId', 'audioTitle', 'id'],
+    props: ['audioSrc', 'audioTitle', 'id'],
     data: function () {
 		return {
 			isPlayed: false,
-            audioSrc: false,
 		}
 	},
-    mounted() {
-        const config = useRuntimeConfig()
-
-        if(this.audioId) {
-            axios.get(config.public.BACK_OFFICE_URL + 'media/' + this.audioId)
-                .then(response => {
-                    this.audioSrc = response.data.source_url
-                });
-        }
-    },
 }
 </script>
 

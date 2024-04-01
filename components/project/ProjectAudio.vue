@@ -7,13 +7,13 @@
 
             <div class="d-md-flex">
 
-                <project-audio-item v-if=audioId01 
-                    :audioId=audioId01
+                <project-audio-item v-if=audioSrc01 
+                    :audioSrc=audioSrc01
                     :audioTitle=audioTitle01
                     id="audio01"
                 />
-                <project-audio-item v-if=audioId02
-                    :audioId=audioId02
+                <project-audio-item v-if=audioSrc02
+                    :audioSrc=audioSrc02
                     :audioTitle=audioTitle02
                     id="audio02"
                 />
@@ -29,7 +29,7 @@ import ProjectAudioItem from '~/components/project/ProjectAudioItem.vue'
 
 export default {
     name: 'project-audio',
-    props: ['audioId01', 'audioTitle01', 'audioId02', 'audioTitle02', 'isSmall', 'isCentered'],
+    props: ['audioSrc01', 'audioTitle01', 'audioSrc02', 'audioTitle02', 'isSmall', 'isCentered'],
     components: {
 		ProjectAudioItem,
   	},
