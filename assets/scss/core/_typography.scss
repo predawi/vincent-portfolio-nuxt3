@@ -53,6 +53,15 @@ h3 {
         line-height: rem(29px);
     }
 
+    &--small {
+        line-height: rem(20px);
+        font-size: rem(16px);
+
+        ul {
+            line-height: rem(16px);
+        }
+    }
+
     p {
         margin: rem(20px) 0 0;
 

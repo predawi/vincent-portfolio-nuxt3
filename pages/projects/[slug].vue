@@ -32,6 +32,12 @@
 				:isShrink=block.is_shrink
 				:isCentered=block.is_centered />
 
+			<project-paragraph-small v-if="block.acf_fc_layout == 'flexible_custom_paragraph_small'" 
+				:htmlText=block.paragraph
+				:marginTop=block.margin_top
+				:isShrink=block.is_shrink
+				:isCentered=block.is_centered />
+
 			<project-blockquote v-if="block.acf_fc_layout == 'flexible_custom_blockquote'" 
 				:quote=block.quote 
 				:author=block.author
@@ -78,6 +84,7 @@ import ProjectIntro from '~/components/project/ProjectIntro.vue';
 import ProjectImg from '~/components/project/ProjectImg.vue';
 import ProjectSubtitle from '~/components/project/ProjectSubtitle.vue';
 import ProjectParagraph from '~/components/project/ProjectParagraph.vue';
+import ProjectParagraphSmall from '~/components/project/ProjectParagraphSmall.vue';
 import ProjectParagraphImg from '~/components/project/ProjectParagraphImg.vue';
 import ProjectBlockquote from '~/components/project/ProjectBlockquote.vue';
 import ProjectVideo from '~/components/project/ProjectVideo.vue';
@@ -95,6 +102,7 @@ export default {
 		ProjectImg,
 		ProjectSubtitle,
 		ProjectParagraph,
+		ProjectParagraphSmall,
 		ProjectParagraphImg,
 		ProjectBlockquote,
 		ProjectNav,
