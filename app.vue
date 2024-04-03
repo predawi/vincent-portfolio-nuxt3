@@ -4,6 +4,6 @@
   </NuxtLayout>
 </template>
 
-<script lang="ts">
+<script>
 definePageMeta({ layout: 'default' })
 </script>
