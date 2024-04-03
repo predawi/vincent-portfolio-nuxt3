@@ -21,6 +21,8 @@ export default {
 
 <style lang="scss">
 .header {
+    position: relative;
+    z-index: 999;
     padding: rem(30px) rem(25px);
 
     @include tablet {

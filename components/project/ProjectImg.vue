@@ -2,25 +2,29 @@
     <section class="project-img" :style="[marginTop ? {'margin-top': marginTop} : '']">
         <div class="container">
 
-            <figure v-if="imgSrc" class="project-img__figure" :class="
+            <figure v-if="img" class="project-img__figure" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
-                [imgSrcMobile ? ' desktop-only' : ''] +
+                [imgMobile ? ' desktop-only' : ''] +
                 [noPadding ? ' project-img__figure--no-padding' : '']">
 
                 <img 
-                    :src="imgSrc"
-                    :alt="imgAlt"
+                    :src="img.url"
+                    :alt="img.alt"
+                    :width="img.width"
+                    :height="img.height"
                     :style="imgWidth"
                     class="project-img__picture" :loading="loading" />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
-            <figure v-if="imgSrcMobile" class="project-img__figure mobile-only" :class="
+            <figure v-if="imgMobile" class="project-img__figure mobile-only" :class="
                 [alignment ? ' project-img__figure--' + alignment : ''] +
                 [noPadding ? ' project-img__figure--no-padding' : '']">
                 <img 
-                    :src="imgSrcMobile" 
-                    :alt="imgAltMobile"
+                    :src="imgMobile.url" 
+                    :alt="imgMobile.alt"
+                    :width="imgMobile.width"
+                    :height="imgMobile.height"
                     class="project-img__picture" :loading="loading" />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
@@ -34,10 +38,10 @@ import axios from 'axios';
 
 export default {
     name: 'project-img',
-    props: ['imgSrc', 'imgAlt', 'imgSrcMobile', 'imgAltMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
+    props: ['img', 'imgMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
     data() {
         return {
-            imgWidth: 'desktop-sidebar',
+            imgWidth: '',
         };
     },
     mounted() {

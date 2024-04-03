@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'vincent-portfolio',
+      title: 'Vincent Charamon Portfolio',
       htmlAttrs: {
         lang: 'en'
       },

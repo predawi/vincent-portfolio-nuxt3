@@ -1,76 +1,47 @@
 <template>
 	<div>
+		<Head>
+			<Title>{{ title }}</Title>
+		</Head>
+		
 		<div class="loader">
 			<div class="lds-dual-ring"></div>
 		</div>
 
 		<div v-for="block in blocks">
-			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" 
-				:title=block.title 
-				:skills=block.skills
+			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" :title=block.title :skills=block.skills
 				:htmlText=block.intro />
 
-			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" 
-				:imgSrc=block.image.url
-				:imgAlt=block.image.alt
-				:imgSrcMobile=block.image_mobile.url
-				:imgAltMobile=block.image_mobile.alt
-				:mobileWidth=block.width_mobile
-				:desktopWidth=block.width_desktop
-				:marginTop=block.margin_top
-				:alignment=block.alignment
-				:noPadding=block.no_padding
-				:caption=block.caption
-				:loading=eager />
+			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" :img=block.image
+				:imgMobile=block.image_mobile :mobileWidth=block.width_mobile :desktopWidth=block.width_desktop
+				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
+				:caption=block.caption :loading=eager />
 
-			<project-subtitle v-if="block.acf_fc_layout == 'flexible_custom_subtitle'" 
-				:text=block.subtitle />
+			<project-subtitle v-if="block.acf_fc_layout == 'flexible_custom_subtitle'" :text=block.subtitle />
 
-			<project-paragraph v-if="block.acf_fc_layout == 'flexible_custom_paragraph'" 
-				:htmlText=block.paragraph
-				:marginTop=block.margin_top
-				:isShrink=block.is_shrink
+			<project-paragraph v-if="block.acf_fc_layout == 'flexible_custom_paragraph'" :htmlText=block.paragraph
+				:marginTop=block.margin_top :isShrink=block.is_shrink :isCentered=block.is_centered />
+
+			<project-paragraph-small v-if="block.acf_fc_layout == 'flexible_custom_paragraph_small'"
+				:htmlText=block.paragraph :marginTop=block.margin_top :isShrink=block.is_shrink
 				:isCentered=block.is_centered />
 
-			<project-paragraph-small v-if="block.acf_fc_layout == 'flexible_custom_paragraph_small'" 
-				:htmlText=block.paragraph
-				:marginTop=block.margin_top
-				:isShrink=block.is_shrink
-				:isCentered=block.is_centered />
+			<project-blockquote v-if="block.acf_fc_layout == 'flexible_custom_blockquote'" :quote=block.quote
+				:author=block.author :cite=block.cite :isShrink=block.is_shrink :isCentered=block.is_centered />
 
-			<project-blockquote v-if="block.acf_fc_layout == 'flexible_custom_blockquote'" 
-				:quote=block.quote 
-				:author=block.author
-				:cite=block.cite
-				:isShrink=block.is_shrink
-				:isCentered=block.is_centered />
+			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'"
+				:htmlText=block.paragraph :imgSrc=block.image.url :imgAlt=block.image.alt :marginTop=block.margin_top
+				caption=block.caption :isCentered=block.is_centered loading="lazy" />
 
-			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'" 
-				:htmlText=block.paragraph
-				:imgSrc=block.image.url
-				:imgAlt=block.image.alt
-				:marginTop=block.margin_top
-				caption=block.caption
-				:isCentered=block.is_centered
-				loading="lazy" />
-
-			<project-video v-if="block.acf_fc_layout == 'flexible_custom_video'" 
-				:videoSrc=block.video.url
-				:marginTop=block.margin_top
-				:alignment=block.alignment
-				:noPadding=block.no_padding
+			<project-video v-if="block.acf_fc_layout == 'flexible_custom_video'" :videoSrc=block.video.url
+				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
 				:caption=block.caption />
 
-			<project-audio v-if="block.acf_fc_layout == 'flexible_custom_audio'" 
-				:audioSrc01=block.audio_01.url
-				:audioTitle01=block.audio_title_01
-				:audioSrc02=block.audio_02.url
-				:audioTitle02=block.audio_title_02 />
+			<project-audio v-if="block.acf_fc_layout == 'flexible_custom_audio'" :audioSrc01=block.audio_01.url
+				:audioTitle01=block.audio_title_01 :audioSrc02=block.audio_02.url :audioTitle02=block.audio_title_02 />
 
-			<project-link v-if="block.acf_fc_layout == 'flexible_custom_link'" 
-				:linkSrc=block.link.url
-				:linkTitle=block.link.title
-				:alignment=block.alignment />
+			<project-link v-if="block.acf_fc_layout == 'flexible_custom_link'" :linkSrc=block.link.url
+				:linkTitle=block.link.title :alignment=block.alignment />
 		</div>
 
 		<ProjectNav />
@@ -93,10 +64,9 @@ import ProjectLink from '~/components/project/ProjectLink.vue';
 
 import ProjectNav from '~/components/ProjectNav.vue';
 
-definePageMeta({ layout: 'project' })
+definePageMeta({ layout: 'project', title: 'My App', })
 
 export default {
-	name: 'Anoti',
 	components: {
 		ProjectIntro,
 		ProjectImg,
@@ -108,13 +78,9 @@ export default {
 		ProjectNav,
 		ProjectLink,
 	},
-	meta() {
-		return {
-			title: 'Anoti'
-		}
-	},
 	data() {
 		return {
+			title: '',
 			blocks: ''
 		};
 	},
@@ -123,6 +89,7 @@ export default {
 
 		axios.get(config.public.BACK_OFFICE_URL + 'project?slug=' + this.$route.params.slug)
 			.then(response => {
+				this.title = response.data[0].title.rendered
 				this.blocks = response.data[0].acf.flexible
 
 				document.querySelector('.loader').classList.add('hidden')
@@ -137,7 +104,7 @@ export default {
 <style lang="scss">
 .loader {
 	position: fixed;
-	z-index: 1;
+	z-index: 998;
 	width: 100%;
 	height: 100%;
 	background: gray;
