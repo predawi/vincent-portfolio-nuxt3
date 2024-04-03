@@ -1,12 +1,11 @@
 <template>
 	<div>
+
 		<Head>
 			<Title>{{ title }}</Title>
 		</Head>
-		
-		<div class="loader">
-			<div class="lds-dual-ring"></div>
-		</div>
+
+		<div class="loader-wrapper"><span class="loader"></span></div>
 
 		<div v-for="block in blocks">
 			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" :title=block.title :skills=block.skills
@@ -92,9 +91,9 @@ export default {
 				this.title = response.data[0].title.rendered
 				this.blocks = response.data[0].acf.flexible
 
-				document.querySelector('.loader').classList.add('hidden')
+				document.querySelector('.loader-wrapper').classList.add('hidden')
 				setTimeout(() => {
-					document.querySelector('.loader').classList.add('remove')
+					document.querySelector('.loader-wrapper').classList.add('remove')
 				}, 300);
 			});
 	}
@@ -103,53 +102,61 @@ export default {
 
 <style lang="scss">
 .loader {
-	position: fixed;
-	z-index: 998;
-	width: 100%;
-	height: 100%;
-	background: gray;
-	opacity: 1;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all .3s ease-in-out;
+	position: relative;
+	width: 48px;
+	height: 48px;
 
-	&.hidden {
-		opacity: 0;
-	}
+	&-wrapper {
+		position: fixed;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+		background: $maingrey;
+		opacity: 1;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: opacity ease-in-out .3s;
 
-	&.remove {
-		z-index: -999;
+		&.hidden {
+			opacity: 0;
+		}
+
+		&.remove {
+			z-index: -999;
+		}
 	}
 }
 
-.lds-dual-ring {
-	display: inline-block;
-	width: 80px;
-	height: 80px;
-}
-
-.lds-dual-ring:after {
-	content: " ";
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 8px;
+.loader::after,
+.loader::before {
+	content: '';
+	box-sizing: border-box;
+	width: 48px;
+	height: 48px;
 	border-radius: 50%;
-	border: 6px solid #fff;
-	border-color: #fff transparent #fff transparent;
-	animation: lds-dual-ring 1.2s linear infinite;
+	border: 1px solid $secondary;
+	position: absolute;
+	left: 0;
+	top: 0;
+	animation: animloader 2s linear infinite;
 }
 
-@keyframes lds-dual-ring {
+.loader::after {
+	animation-delay: 1s;
+}
+
+@keyframes animloader {
 	0% {
-		transform: rotate(0deg);
+		transform: scale(1);
+		opacity: 1;
 	}
 
 	100% {
-		transform: rotate(360deg);
+		transform: scale(0);
+		opacity: 0;
 	}
 }
 </style>
