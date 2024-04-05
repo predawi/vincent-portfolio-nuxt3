@@ -13,7 +13,7 @@
                     :width="img.width"
                     :height="img.height"
                     :style="imgWidth"
-                    class="project-img__picture" :loading="loading" />
+                    class="project-img__picture" :loading=loading />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -25,7 +25,7 @@
                     :alt="imgMobile.alt"
                     :width="imgMobile.width"
                     :height="imgMobile.height"
-                    class="project-img__picture" :loading="loading" />
+                    class="project-img__picture" :loading=loading />
                     <figcaption v-if="caption" class="caption project-img__caption">{{ caption }}</figcaption>
             </figure>
 
@@ -38,7 +38,7 @@ import axios from 'axios';
 
 export default {
     name: 'project-img',
-    props: ['img', 'imgMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' ,'loading'],
+    props: ['img', 'imgMobile', 'mobileWidth', 'desktopWidth', 'caption', 'marginTop', 'alignment', 'noPadding' , 'loading'],
     data() {
         return {
             imgWidth: '',

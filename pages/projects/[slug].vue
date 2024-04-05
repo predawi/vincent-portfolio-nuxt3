@@ -7,14 +7,14 @@
 
 		<div class="loader-wrapper"><span class="loader"></span></div>
 
-		<div v-for="block in blocks">
+		<div v-for="(block, index) in blocks">
 			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" :title=block.title :skills=block.skills
 				:htmlText=block.intro />
 
 			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" :img=block.image
 				:imgMobile=block.image_mobile :mobileWidth=block.width_mobile :desktopWidth=block.width_desktop
 				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
-				:caption=block.caption :loading=eager />
+				:caption=block.caption :loading="index < 2 ? 'eager' : 'lazy'" />
 
 			<project-subtitle v-if="block.acf_fc_layout == 'flexible_custom_subtitle'" :text=block.subtitle />
 
@@ -30,7 +30,7 @@
 
 			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'"
 				:htmlText=block.paragraph :imgSrc=block.image.url :imgAlt=block.image.alt :marginTop=block.margin_top
-				caption=block.caption :isCentered=block.is_centered loading="lazy" />
+				caption=block.caption :isCentered=block.is_centered :loading="index < 2 ? 'eager' : 'lazy'" />
 
 			<project-video v-if="block.acf_fc_layout == 'flexible_custom_video'" :videoSrc=block.video.url
 				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
@@ -80,7 +80,7 @@ export default {
 	data() {
 		return {
 			title: '',
-			blocks: ''
+			blocks: []
 		};
 	},
 	mounted() {

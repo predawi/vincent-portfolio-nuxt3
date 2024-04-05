@@ -3,14 +3,14 @@
         <div class="reviews__infos">
             <img v-if="imgSrc" :src="imgSrc" :alt="imgAlt" class="reviews__avatar" loading="lazy" />
             <div class="reviews__metas">
-                <h3 v-if="author" class="reviews__author">{{ author }}</h3>
-                <span v-if="company" class="typo-category reviews__category">{{ company }}</span>
+                <h3 v-if="author" class="reviews__author" v-html=author></h3>
+                <span v-if="company" class="typo-category reviews__category" v-html=company></span>
             </div>
         </div>
 
-        <div v-if="review" class="reviews__content">{{ review }}</div>
+        <div v-if="review" class="reviews__content" v-html=review></div>
 
-        <a v-if="link" :href="link" class="reviews__link">Voir l'avis</a>
+        <a v-if="link.url" :href="link.url" class="reviews__link">{{ link.title }}</a>
     </div>
 </template>
 

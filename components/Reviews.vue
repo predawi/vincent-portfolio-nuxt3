@@ -11,13 +11,13 @@
 			<div class="reviews__list">
 				<review-card
 					v-for="(review, index) in reviews"
-					:key="review.author + index"
-					:author="review.author"
-					:company="review.company"
-					:review="review.review"
-					:link="review.link"
-					:imgSrc="review.imgSrc"
-					:imgAlt="`${review.author} review`"
+					:key="index"
+					:author="review.title.rendered"
+					:company="review.acf.company"
+					:review="review.content.rendered"
+					:link="review.acf.link"
+					:imgSrc="review.acf.avatar.url"
+					:imgAlt="review.acf.avatar.alt"
 				>
 				</review-card>
 			</div>
@@ -28,7 +28,9 @@
 </template>
 
 <script>
-import reviews from '../data/reviews.json'
+import axios from 'axios'
+
+//import reviews from '../data/reviews.json'
 import ReviewCard from '~/components/ReviewCard.vue'
 
 export default {
@@ -38,9 +40,17 @@ export default {
   	},
 	data() {
 		return {
-			reviews,
+			reviews: []
 		}
 	},
+	mounted() {
+		const config = useRuntimeConfig()
+
+		axios.get(config.public.BACK_OFFICE_URL + 'review')
+			.then(response => {
+				this.reviews = response.data
+			});
+	}
 }
 </script>
 <style lang="scss">
