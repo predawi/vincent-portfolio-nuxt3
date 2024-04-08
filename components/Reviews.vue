@@ -67,9 +67,7 @@ export default {
 		transform: translateX(-50%);
 
 		svg {
-            @include mobile {
-				max-width: 100%;
-			}
+			max-width: 100%;
         }
 	}
 
