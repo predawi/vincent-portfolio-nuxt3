@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   
   runtimeConfig: {
     public: {
-      BACK_OFFICE_URL: 'https://vincenk.cluster027.hosting.ovh.net/backend/wp-json/wp/v2/'
+      BACK_OFFICE_URL: 'http://vincenk.cluster027.hosting.ovh.net/backend/wp-json/wp/v2/'
     }
     // public: {
     //   BACK_OFFICE_URL: 'http://vincent-backend/wp-json/wp/v2/'

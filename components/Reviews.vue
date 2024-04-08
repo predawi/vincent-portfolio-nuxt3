@@ -29,8 +29,6 @@
 
 <script>
 import axios from 'axios'
-
-//import reviews from '../data/reviews.json'
 import ReviewCard from '~/components/ReviewCard.vue'
 
 export default {
