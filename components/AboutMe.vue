@@ -10,8 +10,6 @@
             <img src="/about-me.png" class="typo-t1 about-me__picture" alt="" loading="lazy">
 
             <p class="typo-p about-me__description">I’m a Senior Product designer, CX designer, UX & UI designer. I work on digital strategy, immersive experiences and on conception of digital products for international companies and agencies</p>
-
-            <div class="about-me__star"><svg xmlns="http://www.w3.org/2000/svg" width="131" height="130" fill="none"><path stroke="#FBF8F3" d="m37.27 6.537 57.347 117.58M54.766.913l22.717 128.833M76.498.913 53.78 129.746M98.315 8.521l-65.41 113.293M23.236 15.57l84.09 100.214M1.255 77.48l128.832-22.716M9.191 98.577l113.294-65.41M20.51 112.838l90.875-94.104M121.809 98.577 8.515 33.166M129.745 77.481.913 54.764"/></svg></div>
         </div>
     </section>
 </template>
@@ -36,6 +34,7 @@ export default {
         z-index: -1;
         top: rem(-100px);
         left: 0;
+        opacity: 0.4;
         
         svg {
             max-width: 100%;

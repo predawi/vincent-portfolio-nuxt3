@@ -4,12 +4,9 @@
         <div class="passion__container">
             <h1 class="typo-t2 passion__title">Passion</h1>
 
-            <p class="typo-p passion__description">I’m a musician and producer of music since 15 years, I had the chance to showcase my work for art exhibition, radio shows, festivals and even for immersive digital experiences</p>
+            <p class="typo-p passion__description">I’m a musician and producer of music since 15 years, I had the chance to showcase my work for art exhibition, ballets, radio shows, festivals and to produce sound designs for brands</p>
 
             <a href="https://open.spotify.com/intl-fr/artist/6JR4xDvb36OrgAAUJqgABk" class="passion__cta" target="_blank">
-                <span class="passion__cta-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" fill="none"><path fill="#222" d="M11 7 .5 13.062V.938L11 7Z"/></svg>
-                </span>
                 <span class="passion__cta-text">Listen on Spotify</span>
             </a>
         </div>
@@ -27,9 +24,11 @@ export default {
 .passion {
     position: relative;
     margin-top: rem(30px);
+    margin-bottom: rem(50px);
 
     @include tablet {
         margin-top: rem(150px);
+        margin-bottom: rem(100px);
     }
 
     &__container {
@@ -40,29 +39,6 @@ export default {
         @include tablet {
             max-width: 620px;
             padding: 0 rem(146px);
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            display: block;
-            width: 42px;
-            height: 100%;
-            border: 1px solid $maincolor;
-
-            @include tablet {
-                width: 52px;
-            }
-        }
-
-        &::before {
-            left: 0;
-        }
-        
-        &::after {
-            right: 0;
         }
     }
 
@@ -82,6 +58,11 @@ export default {
         display: flex;
         align-items: center;
         color: #fff;
+        margin-top: rem(48px);
+
+        @include tablet {
+            margin-top: rem(96px);
+        }
     }
 
     &__cta-icon {

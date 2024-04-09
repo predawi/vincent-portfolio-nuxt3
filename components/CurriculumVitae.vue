@@ -17,10 +17,10 @@
                     <th class="cv__table-th">FOR</th>
                     <td class="cv__table-td">
                         <h3>Agencies</h3>
-                        <p>Malherbe, LaFourmi, UX Republic, DVTK, BeAPI, La Netscouade, Plan Net, Retrofutur, OpenClassRooms, Upscape, and more</p>
+                        <p>Spintank La Fourmi Cosa Vostra Malherbe DVTK BeAPI La Netscouade UX Republic Service Plan Upscape and more</p>
 
                         <h3>Clients</h3>
-                        <p>Gucci, Hermès, Barbican Center, Datakeen, Total Energies, Anoti, Masan Group, BNP Paribas, Jaeger-Lecoultre, Free, BPCE group, Crédit Agricole, Coty, Keolis, RATP (Open Tour), M6, Wellio, TeleZ, Staci, Flexfuel, World Organisation for Animal Health, ...</p>
+                        <p>Renault Hermès Gucci Jaeger Lecoultre Coty Calvin Klein Free Barbican Center Bnp Paribas BPCE Open class room Télé Z World Economic Forum World Health Organisation Systran Offstage Crédit Agricole Masan Group Ami Paris Datakeen and many more</p>
                     </td>
                 </tr>
                 <tr class="cv__table-tr">
@@ -94,19 +94,25 @@
                 <table class="cv__table collapsed">
                     <tr class="cv__table-tr">
                         <th class="cv__table-th">ROLE</th>
-                        <td class="cv__table-td">TEACHER & JURY</td>
+                        <td class="cv__table-td">FOUNDER OF A DIGITAL CORE TEAM (BLACK CHIPS)</td>
                     </tr>
                     <tr class="cv__table-tr">
                         <th class="cv__table-th">FOR</th>
                         <td class="cv__table-td">
-                            Open class rooms, L’ecole multimedia, Digital Campus, <br>JEDY formation
+                            Printemps, Po&me, Poilane, HeavyM, Blue, Cowash, Clickeat, Pandacraft, Lita, Animaux santé, Suez, La petite étoile
                         </td>
                     </tr>
                     <tr class="cv__table-tr">
                         <th class="cv__table-th">MISSION</th>
                         <td class="cv__table-td">
-                            Teaching UX & UI design to Master & professionnal students<br><br>
-                            Following students through hackathon and school competitions
+                            Team Production Manager<br><br>
+                            Account Manager<br><br>
+                            Conducting user interviews, user testings, strategy workshops<br><br>
+                            Wireframing & prototyping ecommerce, mobile apps, Saas<br><br>
+                            Team management (UX designers, Creatives, Developpers)<br><br>
+                            Creating CMS based websites (woocommerce, prestashops, shopify)<br><br>
+                            Designed iOS and Android native mobile apps<br><br>
+                            Built visual identities and experiential websites
                         </td>
                     </tr>
                 </table>
@@ -231,7 +237,8 @@ export default {
         position: absolute;
         z-index: -1;
         top: rem(-100px);
-        left: 0;
+        right: 0;
+        opacity: 0.4;
         
         svg {
             max-width: 100%;
@@ -317,7 +324,7 @@ export default {
 
     &__table {
         border-collapse: collapse;
-        border: 1px solid $maincolor;
+        border: 0.25px solid $maincolor;
 
         @include tablet {
             width: 100%;
@@ -331,14 +338,14 @@ export default {
                 display: block;
                 height: 0;
                 border: 0;
-                border-bottom: 1px solid $maincolor;
+                border-bottom: 0.25px solid $maincolor;
                 overflow: hidden;
             }
         }
     }
 
     &__table-tr {
-        border-bottom: 1px solid $maincolor;
+        border-bottom: 0.25px solid $maincolor;
 
         &:first-child {
             .cv__table-td {
@@ -355,7 +362,7 @@ export default {
     }
 
     &__table-th {
-        border-right: 1px solid $maincolor;
+        border-right: 0.25px solid $maincolor;
         line-height: rem(16px);
         font-size: rem(12px);
         font-weight: 600;
