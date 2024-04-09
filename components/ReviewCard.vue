@@ -102,6 +102,10 @@ props: ['imgSrc', 'imgAlt', 'author', 'company', 'review', 'link'],
     &__link {
         display: block;
         margin-top: rem(30px);
+        font-size: rem(12px);
+        font-weight: 400;
+        letter-spacing: 1.56px;
+        color: black;
     }
 }
 </style>
