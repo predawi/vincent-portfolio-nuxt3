@@ -11,30 +11,28 @@
 			<project-intro v-if="block.acf_fc_layout == 'flexible_custom_intro'" :title=block.title :skills=block.skills
 				:htmlText=block.intro />
 
-			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" :img=block.image
-				:imgMobile=block.image_mobile :mobileWidth=block.width_mobile :desktopWidth=block.width_desktop
-				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
-				:caption=block.caption :loading="index < 2 ? 'eager' : 'lazy'" />
+			<project-img v-if="block.acf_fc_layout == 'flexible_custom_image'" :img=block.image :imgMobile=block.image_mobile
+				:mobileWidth=block.width_mobile :desktopWidth=block.width_desktop :marginTop=block.margin_top
+				:alignment=block.alignment :noPadding=block.no_padding :caption=block.caption
+				:loading="index < 2 ? 'eager' : 'lazy'" />
 
 			<project-subtitle v-if="block.acf_fc_layout == 'flexible_custom_subtitle'" :text=block.subtitle />
 
 			<project-paragraph v-if="block.acf_fc_layout == 'flexible_custom_paragraph'" :htmlText=block.paragraph
 				:marginTop=block.margin_top :isShrink=block.is_shrink :isCentered=block.is_centered />
 
-			<project-paragraph-small v-if="block.acf_fc_layout == 'flexible_custom_paragraph_small'"
-				:htmlText=block.paragraph :marginTop=block.margin_top :isShrink=block.is_shrink
-				:isCentered=block.is_centered />
+			<project-paragraph-small v-if="block.acf_fc_layout == 'flexible_custom_paragraph_small'" :htmlText=block.paragraph
+				:marginTop=block.margin_top :isShrink=block.is_shrink :isCentered=block.is_centered />
 
 			<project-blockquote v-if="block.acf_fc_layout == 'flexible_custom_blockquote'" :quote=block.quote
 				:author=block.author :cite=block.cite :isShrink=block.is_shrink :isCentered=block.is_centered />
 
-			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'"
-				:htmlText=block.paragraph :imgSrc=block.image.url :imgAlt=block.image.alt :marginTop=block.margin_top
-				caption=block.caption :isCentered=block.is_centered :loading="index < 2 ? 'eager' : 'lazy'" />
+			<project-paragraph-img v-if="block.acf_fc_layout == 'flexible_custom_paragraph-img'" :htmlText=block.paragraph
+				:imgSrc=block.image.url :imgAlt=block.image.alt :marginTop=block.margin_top caption=block.caption
+				:isCentered=block.is_centered :loading="index < 2 ? 'eager' : 'lazy'" />
 
 			<project-video v-if="block.acf_fc_layout == 'flexible_custom_video'" :videoSrc=block.video.url
-				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding
-				:caption=block.caption />
+				:marginTop=block.margin_top :alignment=block.alignment :noPadding=block.no_padding :caption=block.caption />
 
 			<project-audio v-if="block.acf_fc_layout == 'flexible_custom_audio'" :audioSrc01=block.audio_01.url
 				:audioTitle01=block.audio_title_01 :audioSrc02=block.audio_02.url :audioTitle02=block.audio_title_02 />
@@ -52,16 +50,16 @@
 <script>
 import axios from 'axios';
 
-import ProjectIntro from '~/components/project/ProjectIntro.vue';
-import ProjectImg from '~/components/project/ProjectImg.vue';
-import ProjectSubtitle from '~/components/project/ProjectSubtitle.vue';
-import ProjectParagraph from '~/components/project/ProjectParagraph.vue';
-import ProjectParagraphSmall from '~/components/project/ProjectParagraphSmall.vue';
-import ProjectParagraphImg from '~/components/project/ProjectParagraphImg.vue';
-import ProjectBlockquote from '~/components/project/ProjectBlockquote.vue';
-import ProjectVideo from '~/components/project/ProjectVideo.vue';
 import ProjectAudio from '~/components/project/ProjectAudio.vue';
+import ProjectBlockquote from '~/components/project/ProjectBlockquote.vue';
+import ProjectImg from '~/components/project/ProjectImg.vue';
+import ProjectIntro from '~/components/project/ProjectIntro.vue';
 import ProjectLink from '~/components/project/ProjectLink.vue';
+import ProjectParagraph from '~/components/project/ProjectParagraph.vue';
+import ProjectParagraphImg from '~/components/project/ProjectParagraphImg.vue';
+import ProjectParagraphSmall from '~/components/project/ProjectParagraphSmall.vue';
+import ProjectSubtitle from '~/components/project/ProjectSubtitle.vue';
+import ProjectVideo from '~/components/project/ProjectVideo.vue';
 
 import ProjectNav from '~/components/ProjectNav.vue';
 

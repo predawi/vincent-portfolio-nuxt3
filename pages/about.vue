@@ -9,8 +9,8 @@
 definePageMeta({ layout: 'about' })
 
 import AboutMe from '~/components/AboutMe.vue';
-import CurriculumVitae from '~/components/CurriculumVitae.vue';
 import AboutMePassion from '~/components/AboutMePassion.vue';
+import CurriculumVitae from '~/components/CurriculumVitae.vue';
 
 export default {
   name: 'about',
