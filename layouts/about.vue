@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss">
 .about-template {
-	background: #1E1E1E;
+	background: $blackcolor;
 	color: #fff;
 	transition: background-color .5s ease-out;
 

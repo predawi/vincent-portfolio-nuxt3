@@ -8,9 +8,9 @@
             </div>
 
             <ul class="contact__list">
-                <li class="contact__item"><a href="#" target="_blank">LINKEDIN</a></li>
-                <li class="contact__item"><a href="#" target="_blank">MALT</a></li>
-                <li class="contact__item">email@email.com</li>
+                <li class="contact__item"><a href="https://fr.linkedin.com/in/vincent-charamon-30008aa2" target="_blank">LINKEDIN</a></li>
+                <li class="contact__item"><a href="https://www.malt.fr/profile/vincentcharamon" target="_blank">MALT</a></li>
+                <!-- <li class="contact__item">email@email.com</li> -->
             </ul>
         </div>
     </div>

@@ -14,7 +14,7 @@
                 <div class="clients__content">
                     <h2 class="clients__title">I’ve also worked with</h2>
 
-                    <p class="clients__list">Gucci . COTY . RATP . Poilane . Open class room . Les fruits & légumes frais . FlexFuel . NOOZ . Anoti . RX Production . UX Republic . BeAPI . DVTK . Upscape . Malherbe . Retrofutur . Crédit Agricole . Plan NET . La Netscouade . Cowash . Hermès . 34 Studio . Printemps</p>
+                    <p class="clients__list">Ami Paris . Gucci . COTY . Printemps . Jaeger-Lecoultre . Lacoste . Danone . FDJ . Poilane . Hermès . TotalEnergies . Open class room . NOOZ . RX Production . UX Republic . Cosa Vostra . BeAPI . DVTK . Upscape . Malherbe . Spintank . Crédit Agricole . ServicePlan . La Netscouade . Cowash . 34 Studio . Printemps</p>
                 </div>
             </div>
 		</div>
@@ -97,6 +97,8 @@ export default {
 
     &__list {
         margin: rem(30px) 0 0;
+        font-size: rem(14px);
+        text-align: center;
 
         @include tablet {
             margin: rem(47px) 0 0;

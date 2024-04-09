@@ -22,7 +22,7 @@ export default {
         width: 100%;
         height: 100%;
         padding: rem(50px);
-        line-height: rem(36px);
+        line-height: rem(28px);
         font-size: rem(18px);
         font-family: 'Canela';
         background: $blackcolor;
