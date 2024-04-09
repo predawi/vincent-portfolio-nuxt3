@@ -44,6 +44,8 @@
 		</div>
 
 		<ProjectNav />
+
+		<Footer />
 	</div>
 </template>
 

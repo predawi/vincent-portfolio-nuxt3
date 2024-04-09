@@ -10,7 +10,6 @@ useHead({
 	<div>
 		<HeaderBanner />
 		<slot />
-		<Footer />
 	</div>
 </template>
 
