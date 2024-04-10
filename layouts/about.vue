@@ -7,23 +7,23 @@ useHead({
 </script>
 
 <template>
-	<div>
+	<div id="about-page">
 		<HeaderBanner />
-			<slot />
+		<slot />
 		<Footer />
 	</div>
 </template>
 
 <script>
-import HeaderBanner from '~/components/HeaderBanner.vue';
 import Footer from '~/components/Footer.vue';
+import HeaderBanner from '~/components/HeaderBanner.vue';
 
 export default {
 	components: {
 		HeaderBanner,
 		Footer,
-	}
-};
+	},
+}
 </script>
 
 <style lang="scss">

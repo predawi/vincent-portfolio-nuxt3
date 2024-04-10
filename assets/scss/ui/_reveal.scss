@@ -22,31 +22,34 @@
 //   }
 // }
 
-
-.page-enter-active, .page-leave-active {
-  transition: opacity .5s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
 .page-enter {
-  transition-delay: .5s;
+  transition-delay: 0.5s;
 }
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
 
-  [class$=__bg] {
+  [class$="__bg"] {
     opacity: 0;
   }
 }
 
-.layout-enter-active, .layout-leave-active {
-  transition: opacity .5s
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s;
 }
 .layout-enter {
-  transition-delay: .5s;
+  transition-delay: 0.5s;
 }
-.layout-enter, .layout-leave-to {
+.layout-enter,
+.layout-leave-to {
   opacity: 0;
 
-  [class$=__bg] {
+  [class$="__bg"] {
     opacity: 0;
   }
 }

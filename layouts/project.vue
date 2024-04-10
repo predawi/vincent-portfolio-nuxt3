@@ -1,11 +1,3 @@
-<script setup>
-useHead({
-	bodyAttrs: {
-		class: 'project-template'
-	},
-})
-</script>
-
 <template>
 	<div>
 		<HeaderBanner />
@@ -14,13 +6,20 @@ useHead({
 </template>
 
 <script>
-import HeaderBanner from '~/components/HeaderBanner.vue';
 import Footer from '~/components/Footer.vue';
+import HeaderBanner from '~/components/HeaderBanner.vue';
 
 export default {
 	components: {
 		HeaderBanner,
 		Footer,
+	},
+	mounted() {
+		useHead({
+			bodyAttrs: {
+				class: 'project-template'
+			},
+		})
 	}
 };
 </script>
